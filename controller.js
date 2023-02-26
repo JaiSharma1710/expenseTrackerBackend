@@ -57,3 +57,12 @@ exports.getDividedExpense = async (req, res) => {
     });
   }
 };
+
+exports.deleteExpense = async (req, res) => {
+  const data = await Expense.findByIdAndDelete({ _id: req.params.id });
+
+  res.status(200).json({
+    status: 'success',
+    data,
+  });
+};

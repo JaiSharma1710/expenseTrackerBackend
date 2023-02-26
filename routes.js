@@ -3,9 +3,9 @@ const expenseController = require('./controller');
 
 const router = express.Router();
 const apicache = require('apicache');
-let cache = apicache.middleware;
+// let cache = apicache.middleware;
 
-// cache('2 minute'),
+// cache('2 minute'), mi
 
 router
   .route('/')
@@ -13,5 +13,7 @@ router
   .post(expenseController.postExpenseData);
 
 router.route('/total').get(expenseController.getDividedExpense);
+
+router.route('/:id').delete(expenseController.deleteExpense);
 
 module.exports = router;
